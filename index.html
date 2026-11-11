@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supawit Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="loader">
+      <div class="loader-box">
+        <div class="loader-title">Supawit Studio</div>
+        <div class="loader-bar"><span id="loader-fill"></span></div>
+        <div class="loader-text" id="loader-text">กำลังโหลดห้อง… 0%</div>
+      </div>
+    </div>
+
+    <header class="brand">
+      <div class="brand-name">Supawit <span>Studio</span></div>
+      <div class="brand-sub">ห้องทำงาน 3D แบบโต้ตอบได้</div>
+    </header>
+
+    <aside class="panel" id="panel">
+      <button class="panel-toggle" id="panel-toggle" aria-label="ซ่อน/แสดงแผงควบคุม">☰</button>
+      <div class="panel-body">
+        <h3>บรรยากาศ</h3>
+        <div class="seg" id="mode-seg">
+          <button data-mode="day" class="active">☀️ กลางวัน</button>
+          <button data-mode="night">🌙 กลางคืน</button>
+        </div>
+
+        <h3>แสงไฟ</h3>
+        <label class="switch"><input type="checkbox" id="sw-led" checked /><span></span>ไฟ LED ผนัง</label>
+        <label class="switch"><input type="checkbox" id="sw-softbox" checked /><span></span>ไฟ Softbox</label>
+        <label class="switch"><input type="checkbox" id="sw-logo" checked /><span></span>ป้ายโลโก้</label>
+        <label class="switch"><input type="checkbox" id="sw-ac" /><span></span>แอร์</label>
+
+        <h3>สี RGB คอมพิวเตอร์</h3>
+        <div class="swatches" id="rgb-swatches">
+          <button style="--c:#ff1f3d" data-color="#ff1f3d" class="active" aria-label="แดง"></button>
+          <button style="--c:#19d3ff" data-color="#19d3ff" aria-label="ฟ้า"></button>
+          <button style="--c:#a64dff" data-color="#a64dff" aria-label="ม่วง"></button>
+          <button style="--c:#2bff88" data-color="#2bff88" aria-label="เขียว"></button>
+          <button class="rainbow" data-color="rainbow" aria-label="รุ้ง"></button>
+        </div>
+
+        <h3>มุมกล้อง</h3>
+        <div class="btn-row">
+          <button id="btn-reset">รีเซ็ตมุม</button>
+          <button id="btn-tour">หมุนชมห้อง</button>
+        </div>
+        <div class="btn-row">
+          <button data-focus="desk">โต๊ะ</button>
+          <button data-focus="window">หน้าต่าง</button>
+          <button data-focus="lounge">มุมพักผ่อน</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <div class="card" id="card">
+      <button class="card-close" id="card-close" aria-label="ปิด">×</button>
+      <div class="card-tag" id="card-tag"></div>
+      <div class="card-title" id="card-title"></div>
+      <div class="card-desc" id="card-desc"></div>
+      <div class="card-state" id="card-state"></div>
+    </div>
+
+    <div class="hint" id="hint">🖱️ ลากเพื่อหมุน · เลื่อนเพื่อซูม · คลิกวัตถุเพื่อโต้ตอบ</div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
